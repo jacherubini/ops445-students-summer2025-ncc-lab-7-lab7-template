@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# Student ID: jacherubini 026400135 
+# Student ID: jacherubini 026400135
 class Time:
     """Simple object type for time of the day.
         data attributes: hour, minute, second
@@ -7,7 +7,7 @@ class Time:
                             time_to_sec, format_time,
                             change_time, sum_time
     """
-    def __init__(self,hour=12,minute=0,second=0):
+    def __init__(self, hour=12, minute=0, second=0):
         """constructor for time object""" 
         self.hour = hour
         self.minute = minute
@@ -45,6 +45,19 @@ class Time:
         if self.minute >= 60 or self.second >= 60 or self.hour >= 24:
             return False
         return True
+
+    def __str__(self):
+        '''return a string representation for the object self'''
+        return f'{self.hour:02d}:{self.minute:02d}:{self.second:02d}'
+
+    def __repr__(self):
+        '''return a string representation for the object self'''
+        return f'{self.hour:02d}.{self.minute:02d}.{self.second:02d}'
+
+    def __add__(self, t2):
+        """return the result by using sum_times() method"""
+        return self.sum_times(t2)
+
 
 def sec_to_time(seconds):
     '''convert a given number of seconds to a time object in 
